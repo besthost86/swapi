@@ -1,0 +1,60 @@
+svg#loader, svg#inputLoader{
+    position: absolute;
+    top: 10%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    grid-row: 3;
+    transform: scale(.8);
+  }
+  svg#inputLoader{
+    width: unset;
+    height: unset;
+  }
+  svg circle{
+    stroke: #00B3A6;
+  }
+  
+  .circle{
+    transform-origin: center ;
+  }
+  #arc1{
+    stroke-dasharray: 30;
+    stroke-dashoffset: 18;
+    animation: 10s -2s rota infinite linear;
+  }
+  #arc3{
+    stroke-dasharray: 400;
+    stroke-dashoffset: 400;
+    animation: 16s rota infinite linear;
+  }
+  #arc4{
+    stroke-dasharray: 400;
+    stroke-dashoffset: 400;
+    animation: 6s rota infinite linear reverse;
+  }
+  #arc5{
+    stroke-dasharray: 400;
+    stroke-dashoffset: 400;
+    animation: 4s rota infinite linear;
+  }
+  #arc6{
+    stroke-dasharray: 400;
+    stroke-dashoffset: 400;
+    animation: 8s rota infinite linear alternate;
+  }
+  #arc7{
+    stroke-dasharray: 400;
+    stroke-dashoffset: 400;
+    animation: 4s rota infinite linear reverse;
+  }
+
+  @keyframes rota{
+    from{
+      transform: rotate(0deg);
+    }
+    to{
+      transform: rotate(360deg);
+    }
+  }

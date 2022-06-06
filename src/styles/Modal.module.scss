@@ -1,0 +1,151 @@
+.wrapper-overlay {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.8);
+    z-index: 1000;
+    .container {
+        display: grid;
+        width: 100%;
+        height: 100%;
+        place-content: center;
+        .modal-box,  .modal-box-details {
+            display: grid;
+            height: 250px;
+            width: 500px;
+            background-color: var(--modal);
+            border-radius: 10px;
+            p {
+                text-align: center;
+                font-size: 2em;
+                font-family: "Bebas Neue";
+                color: var(--fontColor);
+            }
+            .button-wrapper {
+                display: grid;
+                height: 60px;
+                align-self: end;
+                grid-template-columns: 1fr 1fr;
+                grid-auto-flow: column;
+                column-gap: 2px;
+                button {
+                    width: 100%;
+                    border: none;
+                    border-radius: 0 0 10px 0;
+                    background-color: grey;
+                    font-size: 1.4em;
+                    font-family: "Abel";
+                    &:hover {
+                        background-color: var(--hoverButtonArea);
+                    }
+                    &:first-of-type {
+                        border-radius: 0 0 0 10px;
+                        &:hover {
+                            background-color: lightcoral;
+                        }
+                    }
+                }
+            }
+        }
+        .modal-box-details {
+            height: auto;
+            width: 1000px;
+            div.modal-close-wrapper {
+                grid-column: 1/3;
+                grid-row: 1;
+                button.modal-close  {
+                 right: -12px;
+                }
+             }
+        }
+            .modal-table {
+                display: grid;
+                grid-column: 1/3;
+                grid-row: 1/3;
+                max-height: 750px;
+                overflow-y: auto;
+            }
+            .detail-row {
+                display: grid;
+                grid-template-columns: 15% 1fr;
+               p {
+                text-align: left;
+                padding: 5px;
+                white-space: normal;
+                color: var(--detailsColor);
+                font-size: 1em;
+                font-family: "Abel";
+                margin: 0;
+                min-width: 100%;
+                word-break: break-all;
+                box-sizing: border-box;
+               }
+               p.dummy, p.key {
+                background-color: rgba(0,0,0,0.2); 
+                margin: 0; 
+                text-transform: uppercase;
+                text-align: center;
+               }
+               p.dummy {
+                height: 40px;
+                display: inline-block;
+                background-color: rgba(0,0,0,0.2);    
+               }
+            }
+        }
+    }
+div.modal-close-wrapper {
+    display: grid;
+    position: relative;
+    height: 40px;
+}
+button.modal-close {
+    background: none;
+    border: 0;
+    box-sizing: border-box;
+    color: transparent;
+    cursor: pointer;
+    font-size: 28px;
+    letter-spacing: 1.5px;
+    line-height: 90px;
+    outline: none;
+    overflow: hidden;
+    padding: 10px 0 0;
+    position: absolute;
+    text-transform: uppercase;
+    top: -25px;
+    right: -20px;
+    transition: all 0.2s ease-in;
+    width: 100px;
+    transform: scale(.3);
+    z-index: 2;
+    &::before, &::after {
+        background-color: grey;
+        content: '';
+        display: block;
+        height: 3px;
+        left: 0;
+        position: absolute;
+        transform-origin: center left;
+        transition: all 0.2s ease-in;
+        width: 141.4214px;
+        z-index: 0;    
+    }
+    &::before {
+        top: 0;
+        transform: rotate(45deg);
+    }
+    &::after {
+        bottom: 0;
+        transform: rotate(-45deg);
+    }
+    &:hover {
+        color: black;
+    } 
+    &:hover::before, &:hover::after {
+        height: 5px;
+        transform: rotate(0deg);
+    }
+}

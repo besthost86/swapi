@@ -1,0 +1,60 @@
+.container {
+    display: grid;
+    grid-column: 2;
+    grid-template-rows: auto auto 1fr;
+    height: 100%;
+    align-self: start;
+    grid-gap: 5px;
+    .api-header {
+        display: grid;
+        grid-auto-flow: column;
+        color: grey;
+        font-size: 2em;
+        border: 2px solid var(--darkBoder);
+        div {
+            display: grid;
+            place-items: center;
+            width: 100%;
+            background-color: var(--secondary);
+            cursor: pointer;
+            z-index: 5;
+            svg {
+                font-size: 2em;
+                fill: var(--iconColor)
+            }
+        &:nth-of-type(4) {
+            path {
+                fill: var(--iconColor);
+            }
+        &:hover {
+            path {
+                fill: var(--hoverButtonColor);
+            }
+        }    
+        }    
+        &:hover {
+            background-color: var(--hoverButtonArea);
+            svg {
+                fill:  var(--hoverButtonColor);
+            }   
+        }   
+        &:nth-of-type(2)  { 
+            svg {
+                font-size: 2.2em;
+            } 
+        }  
+        }
+        [data-selected = true] {
+            background-color: rgba(31, 41, 59, 0.535);
+            svg {
+                fill: var(--endPointSelected); 
+            }       
+        }
+        [data-selected = true][data-trooper] {
+            path {
+                fill: var(--endPointSelected); 
+            }
+        }
+    }
+}
+  

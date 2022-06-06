@@ -1,0 +1,81 @@
+:root {
+  --transition: 0.5s ease;
+}
+.app[data-theme="light"] {
+  --themeBackground: #e6e1e1;
+  --fontColor: black;
+  --hoverButtonColor: white;
+  --iconColor: grey;
+  --secondary: rgba(0,0,0,0.2);
+  --darkBoder:  rgba(0,0,0,0.3);
+  --endPointSelected: var(--hoverButtonColor);
+  --highLightedRow: #63BFB4;
+  --noResults: rgba(31, 41, 59, 0.535);
+  --brightness: 100%;
+  --hoverButtonArea: #63BFB4;
+  --searchLoader: grey;
+  --modal: seashell;
+  --detailsColor: var( --fontColor)
+}
+.app[data-theme="dark"] {
+  --themeBackground: #282C34;
+  --fontColor: grey;
+  --hoverButtonColor: lightgrey;
+  --iconColor: var(--themeBackground);
+  --secondary: #17181B;
+  --darkBoder: var(--secondary);
+  --endPointSelected: #00B3A6;
+  --highLightedRow: #ffa500;
+  --noResutls: var(--highLightedRow);
+  --brightness: 30%;
+  --hoverButtonArea: rgba(255, 175, 66, 0.8);
+  --searchLoader: #00B3A6;
+  --modal: var(--themeBackground);
+  --detailsColor: #9da1ae;
+}
+.app {
+  display: grid;
+  align-items: center;
+  align-content: center;
+  grid-template-columns: 5vw 1fr 5vw; 
+  grid-template-rows:  15% 70vh 10%;
+  grid-auto-rows: minmax(0,1fr);
+  height: 100vh;
+  background-color: var(--themeBackground);
+  transition: background-color var(--transition);
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin  20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

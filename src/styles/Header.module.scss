@@ -1,0 +1,17 @@
+.header {
+    display: grid;
+    grid-column: 2;
+    place-items: center;
+    position: relative;
+    height: 80px;
+      .sw-logo-c {
+          width: 320px;
+          height: 400px;
+          display: grid;
+          position: absolute;
+          justify-self: start;
+          path {
+              fill: var(--endPointSelected);
+          }
+      }
+}

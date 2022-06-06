@@ -1,0 +1,114 @@
+
+.mosaic {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(80px, 1fr));
+    grid-auto-rows: minmax(100px, 50%);
+    grid-auto-flow: column dense;
+    min-height: 100%;
+    height: 100%;
+    .title {
+        height: 100%;
+        width: 100%;
+            &:nth-child(4n+1) {
+                grid-row: 1/4;
+            }
+            &:nth-child(5n+3) {
+                grid-row: 1/3;  
+            }
+            &:nth-child(11) {
+                grid-row: 2/4;  
+            }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+} 
+.table {
+    display: grid;
+    height: 100%;
+    min-height: 100%;
+    grid-template-rows: 45px;
+    align-items: start;
+    grid-auto-rows: minmax(0,50px);
+    // position: relative;
+    img {
+        height: 80%;
+        position: absolute;
+        place-self: center;
+    }
+    div.row, .table-header {
+        display: grid;
+        align-self: stretch;
+        max-height: 50px;
+        grid-template-columns: 50px repeat(4, minmax(0, 1fr)) max-content 0.6fr;
+        border-bottom: 1px solid var(--themeBackground);
+        background-color: rgba(0,0,0,0.1);
+        color: var(--fontColor);
+        place-items: center;
+        white-space: nowrap;
+        p {
+            margin: 0;
+        }
+    }
+    .table-header {
+        border-bottom: 5px solid var( --themeBackground);  
+        background-color: var(--darkBoder);
+    }
+    div.highlighted {
+        color: var(--highLightedRow);
+    }
+    div.actions {
+        display: grid;
+        grid-template-columns: 30% 1fr 1fr 30%;
+        width: 100%;
+        height: 100%;  
+        place-items: center; 
+        div {
+            display: grid;
+            grid-column: 2 ;
+            width: 60%;
+            height: 100%;
+            position: relative;
+            place-items: center; 
+            svg {
+                display: block;
+                position: absolute;
+                fill: rgba(0,0,0,0.4);
+                height: 90%;
+                width: 90%;
+                max-width: 2em;
+                transform: scale(1.2);
+                cursor: pointer;
+                &:hover {
+                   fill: var(--highLightedRow);
+                }
+            }
+        }
+        div:nth-of-type(2) {
+            grid-column: 3;
+            justify-self: start;
+            svg {
+                height: 100%;
+                width: 100%;
+                max-width: 2em;
+            }
+        }         
+    }    
+}
+div.noresults {
+    display: grid;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 4em;
+    place-items: center;
+    color: var(--noResutls);
+    opacity: 0.7;
+}
+
+@keyframes huntingEyes {
+    100% {
+        height: 6px;
+        width: 6px;
+    }
+}
