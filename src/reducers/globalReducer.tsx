@@ -45,17 +45,20 @@ export default  function globalReducer(state: typeof initialState, {type, payloa
         case 'setEnpoint' : return {...state, endpoint: {...state.endpoint, slug: value}, currentPage: 1, loading: true}
         case 'changeTheme' : return {...state, themeDark: value}
         case 'toggleModal' : return {...state, modal: {...state.modal, ...value }}
-        // case 'openModal' : return {...state, modal: {...state.modal, ...value }}
         default: throw Error('invalid action type');
     }
 }
 
 
-function removeFromListHandler(state: typeof initialState, { isRemote, rowToRemove }: { isRemote: boolean, rowToRemove: number } ) {
+function removeFromListHandler(state: typeof initialState, { isRemote, rowsToRemove }: { isRemote: boolean, rowsToRemove: any[] } ) {
+
     const updatedSearchPool = [...state.searchPool];
-    !isRemote && updatedSearchPool.splice(rowToRemove, 1); 
- 
     const updatedResults = [...state.results];
-    updatedResults.splice(rowToRemove, 1); 
+        rowsToRemove.forEach(row => {
+            if (!isRemote) {
+                updatedSearchPool.splice(updatedSearchPool.indexOf(row), 1);
+            }
+            updatedResults.splice(updatedResults.indexOf(row), 1);
+        })
     return {...state, results: updatedResults, searchPool: [...updatedSearchPool]}
 }
